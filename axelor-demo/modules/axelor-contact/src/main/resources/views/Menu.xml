@@ -33,5 +33,6 @@
     	<view type="grid" name="cgroup-grid"/>
 	    <view type="form" name="cgroup-form"/>
 	</action-view>
+	
 
 </object-views>
