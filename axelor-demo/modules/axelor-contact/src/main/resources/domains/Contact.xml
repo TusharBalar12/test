@@ -1,18 +1,18 @@
 <?xml version="1.0" ?>
 <domain-models xmlns="http://axelor.com/xml/ns/domain-models"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_3.0.xsd">
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_3.0.xsd">
 
-  <module name="contact" package="com.axelor.contact.db"/>
+	<module name="contact" package="com.axelor.contact.db" />
 
-  <entity name="HelloContact" cachable="true">
-    <![CDATA[
-    This is a simple Hello object.
-    ]]>
-    <string name="title" required="true" unique="true" namecolumn="true"/>
-    <datetime name="publishedOn"/>
-    <string name="tags"/>
-    <string name="message" large="true"/>
-  </entity>
-  
+	<entity name="Contact" cachable="true">
+		<many-to-one name="title" ref="Title" />
+		<string name="firstName" required="true" min="2" />
+		<string name="lastName" required="true" min="2" />
+		<string name="email" required="true" min="2" unique="true" />
+		<string name="phone" />
+		<one-to-many name="addresses" ref="Address" mappedBy="contact" />
+		<many-to-many name="groups" ref="CGroup" mappedBy="contact" />
+	</entity>
+
 </domain-models>

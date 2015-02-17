@@ -1,16 +1,37 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<object-views xmlns="http://axelor.com/xml/ns/object-views" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_3.0.xsd">
 
-	<menuitem name="menu-hello" priority="100" title="Hello" icon="img/tree-folder.png" />
+	<menuitem name="menu-contact" priority="100" title="Contact"
+		icon="img/tree-folder.png" />
 
-	<menuitem name="menu-hello-all" parent="menu-hello"
-    	title="All Messages"
-    	action="hello.all"/>
+	<menuitem name="menu-contact-all" parent="menu-contact" title="All Contacts"
+		action="contact.all" />
 
-	<action-view name="hello.all" title="Messages" model="com.axelor.contact.db.HelloContact">
-    	<view type="grid" name="hello-contact-grid"/>
-	    <view type="form" name="hello-contact-form"/>
+	<menuitem name="menu-title-all" parent="menu-contact" title="All Title"
+		action="title.all" />
+
+
+ 	<menuitem name="menu-group-all" parent="menu-contact"
+    	title="All Group"
+    	action="group.all"/>
+
+	<action-view name="contact.all" title="All Contacts"
+		model="com.axelor.contact.db.Contact">
+		<view type="grid" name="contact-grid" />
+		<view type="form" name="contact-form" />
+	</action-view>
+
+	<action-view name="title.all" title="All Title"
+		model="com.axelor.contact.db.Title">
+		<view type="grid" name="title-grid" />
+		<view type="form" name="title-form" />
+	</action-view>
+
+		<action-view name="group.all" title="All Group" model="com.axelor.contact.db.CGroup">
+    	<view type="grid" name="cgroup-grid"/>
+	    <view type="form" name="cgroup-form"/>
 	</action-view>
 
 </object-views>
